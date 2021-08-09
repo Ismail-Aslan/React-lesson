@@ -1,0 +1,6 @@
+/* regular css 
+import etmeye gerk olmadan her yere etki eder. Büyük projelerde çakışmalara neden olur */
+
+.error {
+    color: red;
+}

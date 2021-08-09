@@ -1,0 +1,6 @@
+/* module css
+ilgili yerde import etmeden kullanamazsın
+*/
+.success {
+    color: green;
+}
