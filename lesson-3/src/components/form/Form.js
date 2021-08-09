@@ -1,12 +1,56 @@
 import "./styles.css";
+import {useState} from "react";
+
+import { setInput } from "./../../helpers/inputHelpers"
+
 
 const Form = () => {
 
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [country, setCountry] = useState("");
+
+//name 
+const handleNameField = (e)=> setName(e.target.value);
+
+//Email 
+const handleEmailField = (e)=> setEmail(e.target.value);
+
+//Password 
+const handlePasswordField = (e)=> setPassword(e.target.value);
+
+//Country 
+const handleCountryField = (e)=> setCountry(e.target.value);
+
+//submit
+const handleSubmit = (e) => {
+
+  e.preventDefault();
+
+  alert(`
+  username: ${name}
+  email : ${email}
+  password: ${password}
+  country: ${country}
+  `)
+  setName("");
+  setEmail("");
+  setPassword("");
+  setCountry("");
+
+}
+
+
+
+
+//console.log(name,email,password,country);
+
   return (
     <div style={{ height: "110vh" }}>
-      <form >
+      <form onSubmit={handleSubmit}>
         <div>
-          <p>name here</p>
+          <p>{name}</p>
           <label>
             <strong>Username:</strong>{" "}
           </label>
@@ -14,10 +58,13 @@ const Form = () => {
           <input
             type="text"
             placeholder="name"
+            value={name}
+            // onChange={handleNameField}
+            onChange={setInput(setName)} //helper kullandık ve yukarıda yazdığımız 4 ayrı fonksiyona gerek kalmadı. aşağıdaki tüm onChange eventlerini bu şekilde değiştirebiliriz.
           />
         </div>
         <div>
-          <p>email here</p>
+          <p>{email}</p>
           <label>
             <strong>E-mail:</strong>{" "}
           </label>
@@ -25,10 +72,12 @@ const Form = () => {
           <input
             type="email"
             placeholder="email"
+            value={email}
+            onChange={handleEmailField}
           />
         </div>
         <div>
-          <p>password here</p>
+          <p>{password}</p>
           <label>
             <strong>Password: </strong>
           </label>
@@ -36,14 +85,18 @@ const Form = () => {
           <input
             type="password"
             placeholder="pass"
+            value={password}
+            onChange={handlePasswordField}
           />
         </div>
         <div style={{ margin: "10px auto" }}>
-          <p>country here</p>
+          <p>{country}</p>
           <label>
             <strong>Country: </strong>
           </label>
           <select
+          value={country}
+          onChange={handleCountryField}
             style={{ marginTop: "10px", width: "100px", padding: "10px" }}
           >
             <option value="">Country</option>
@@ -53,7 +106,8 @@ const Form = () => {
             <option value="France">France</option>
           </select>
         </div>
-        <button className="btn__click" type="submit">
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <button className="btn__click" type="submit" >
           submit
         </button>
       </form>
