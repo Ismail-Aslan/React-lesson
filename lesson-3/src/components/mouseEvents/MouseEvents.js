@@ -29,7 +29,10 @@ const handleClick = (e) => {
 function handleDoubleClick(e) {
   console.log(e.target);
 }
-
+const handleClick2 = (e,name) => {
+  console.log( "event type:",e.type , "target id: ",e.target.id);
+  console.log(name);
+}
 
 
   return (
@@ -48,7 +51,7 @@ function handleDoubleClick(e) {
         <li onDoubleClick = {handleDoubleClick}>
           todo item 3 <span>X</span>
         </li>
-        <li>
+        <li  onClick = {(e) => handleClick2(e,"xxx")}>
           todo item 4 <span>X</span>
         </li>
         <li>
