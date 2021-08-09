@@ -8,13 +8,36 @@ const KeyboardEvents = () => {
    * paste
    */
 
+
+  const handleKeyDown = (e) => {
+    console.log("type", e.type);
+  }
+  const handleKeyUp = (e) => {
+    console.log(e);
+    console.log("target value", e.target.value);
+  }
+  const handleCut = (e) => {
+    console.log(e);
+    console.log("target value", e.target.value);
+  }
+  const handleCopy = (e) => {
+    console.log(e);
+    console.log("target value", e.target.value);
+  }
+
   return (
     <div style={{ marginTop: "30px" }}>
       <h2>KeyboardEvents</h2>
       <input
-        type="text"
+        type="text" 
+        onKeyDown ={handleKeyDown}
+        onKeyUp ={handleKeyUp}
+        
       />
-      <p>
+      <p
+        onCut={handleCut}
+        onCopy={handleCopy}
+      >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
