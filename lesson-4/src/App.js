@@ -1,15 +1,19 @@
 import React, {useState,useEffect} from 'react';
 import Card from './components/Card';
 //import data from './data.json';
+import axios from 'axios'; //  -----yarn add axios---terminalde çalıştırmak gerekiyor
 
 
 function App() {
 
     const [itemList, setItemList] = useState([]);
     useEffect(() => {
-        fetch('https://breakingbadapi.com/api/characters')
-            .then(response => response.json())
-            .then(data => setItemList(data));
+        // fetch('https://breakingbadapi.com/api/characters')
+        //     .then(response => response.json())
+        //     .then(data => setItemList(data));
+
+        axios.get('https://breakingbadapi.com/api/characters')
+        .then((res)=> setItemList(res.data));
 
     }, [])
 
