@@ -1,22 +1,22 @@
-import React, {useState} from 'react'
-import ClassComponent from './ClassComponent';
-import FunctionalComponent from './FunctionalComponent';
+import React from 'react';
+import Card from './components/Card';
+import data from './data.json';
+
 
 function App() {
+    return (
+        <div className="App">
+            <header className="header">
+                <img src="https://www.logolynx.com/images/logolynx/55/55a537ca9549600cf7d1d0b274b3bc61.png" alt="breaking bad logo"/>
 
-  const [isVisible, setVisible] = useState(true);
-  console.log(isVisible);
+            </header>
+            <div className="cards">
+                {data.map((item)=>(
+                    <Card key={item.char_id} item={item}/>
+                ))}
 
-  return (
-    <div className="App">
-      <button onClick={()=>{setVisible(!isVisible)}}>Toggle</button>
-      {isVisible && <ClassComponent/>}
-      {/* <ClassComponent/> */}
-      {isVisible ? <FunctionalComponent/> : null}
-      {/* <FunctionalComponent/> */}
-    </div>
-  )
+            </div>
+        </div>
+    )
 };
-
-
 export default App;
